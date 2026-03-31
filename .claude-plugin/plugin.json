@@ -1,0 +1,18 @@
+{
+  "name": "living-context",
+  "description": "Create and maintain a living context vault for any project — an evolving documentation system that stays synchronized with code changes. Works for any project type.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GCB Grupo"
+  },
+  "homepage": "https://github.com/gcb-grupo/living-context-plugin",
+  "repository": "https://github.com/gcb-grupo/living-context-plugin",
+  "keywords": [
+    "context",
+    "documentation",
+    "obsidian",
+    "living-docs",
+    "vault",
+    "knowledge-base"
+  ]
+}
