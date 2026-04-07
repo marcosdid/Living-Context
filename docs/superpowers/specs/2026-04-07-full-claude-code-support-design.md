@@ -180,10 +180,52 @@ Update the "When Modifying the Skill" section to cover all 3 skills.
 
 ---
 
+## Vault-as-Second-Brain: Stronger Maintenance Language
+
+This is a content change — no new files, just stronger language in two existing places.
+
+### The framing to introduce
+
+The context vault is not just documentation. It is the agent's **extended knowledge base** — a second brain about the project. Reading it before any work and updating it after any change is not a courtesy, it is how the agent stays informed. Without the vault, the agent is working blind.
+
+This framing must appear in two places:
+
+### 1. Phase 4 of `skills/living-context/SKILL.md` (the CLAUDE.md template injected into target projects)
+
+Replace the current maintenance section template with a version that:
+
+- Opens with an explicit declaration of what the vault IS: *"The `context/` vault is your second brain for this project. It is the authoritative source of knowledge about architecture, decisions, and evolution. Always read it before working, always update it after changing."*
+- States the two rules as **hard rules**, not suggestions:
+  - **RULE 1 — Read before working:** Before starting any non-trivial task, read `context/HOME.md`. If working in a specific domain, also read that domain's `estrutura.md` and `evolucao.md`.
+  - **RULE 2 — Write after changing:** After any significant code change, update the vault (changelog, evolution, features, decisions as applicable). This is not optional.
+- Explains *why*: future sessions of the AI — and the next developer — rely on this vault to understand the project. Skipping the update degrades the vault for everyone who comes after.
+- Keeps the existing 5-step update checklist, but under the "RULE 2" header so it reads as procedure, not suggestion.
+
+### 2. `prompt/living-context-prompt.md` — Seção B (maintenance reminder) and Seção A (creation prompt)
+
+**Seção B** (the reminder pasted at the start of each conversation): add the same framing at the top — vault = segundo cérebro, leia antes, escreva depois — before the checklist.
+
+**Seção A** (the creation prompt, section "3. Regras de manutenção"): replace the current intro with language that explains *why* the rules exist — the vault is an extension of the agent's knowledge, not just a log. The rules exist because the agent literally knows less without it.
+
+---
+
+## CLAUDE.md Updates
+
+Update the "Project Structure" section to reflect:
+- `commands/` directory with 3 command files
+- 3 skills instead of 1
+- Remove the phrase "a single skill"
+
+Update the "Key Conventions" section to add:
+- Commands in `commands/*.md` are thin wrappers — logic lives in skills
+- New skills (`update-context`, `context-status`) may reference `skills/living-context/references/templates.md` for format consistency
+
+Update the "When Modifying the Skill" section to cover all 3 skills.
+
+---
+
 ## Out of Scope
 
 - No hooks (post-edit, post-commit) added to the plugin
-- No changes to `references/templates.md`
-- No changes to `prompt/living-context-prompt.md`
 - No agent definitions
 - No changes to `plugin.json`
