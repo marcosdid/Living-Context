@@ -330,13 +330,31 @@ aliases:
 Add this to the project root CLAUDE.md:
 
 ```markdown
-## Living Context Maintenance
+## Living Context — Vault as Second Brain
 
-The `context/` directory is a living documentation vault that evolves with the codebase.
+The `context/` vault is your **second brain** for this project. It is the authoritative source
+of knowledge about architecture, decisions, history, and current state. You — the AI — know less
+about this project without it. Future sessions and future developers depend on it being accurate.
 
-After ANY significant code modification, you MUST:
+> [!important] Two hard rules — no exceptions
+>
+> **RULE 1 — Read before working:** Before starting any non-trivial task, read `context/HOME.md`.
+> If working in a specific domain, also read that domain's `estrutura.md` and `evolucao.md`.
+> Do this even if you think you already know the project. The vault may have changed.
+>
+> **RULE 2 — Write after changing:** After any significant code change, update the vault.
+> This is not optional. Skipping this degrades the vault for every session that comes after.
 
-1. Update `context/changelog.md` with:
+### What counts as a significant change (triggers RULE 2)
+
+Update the vault after: new or deleted source files, changed function signatures or API contracts,
+schema/model changes, new dependencies, config changes that affect behavior.
+
+Skip for: formatting fixes, comment edits, test fixture changes, lockfile updates.
+
+### Update checklist (RULE 2 procedure)
+
+1. Update `context/changelog.md`:
    - Date: `[YYYY-MM-DD]`
    - Type: Feature | Bugfix | Refactor | UI/UX | Infrastructure | Documentation
    - Affected files
