@@ -6,8 +6,12 @@ description: >
   context, create documentation structure, initialize a context vault, or mentions "living context",
   "context vault", "project documentation setup", "context-v2", or "living docs". Also trigger when
   the user wants to organize project knowledge, set up an Obsidian vault for a project, or create
-  a self-maintaining documentation system. Works for ANY project type — backend, frontend, fullstack,
-  data science, mobile, infrastructure, monorepo, or any other.
+  a self-maintaining documentation system. Also trigger for: "set up project documentation",
+  "create context vault", "initialize living docs", "document this project", "set up knowledge base",
+  "create project docs", "set up living documentation". Works for ANY project type — backend,
+  frontend, fullstack, data science, mobile, infrastructure, monorepo, or any other.
+  NOTE: If a `context/` directory already exists in the project, do NOT run this skill —
+  instead, suggest the user run /update-context or /context-status.
 ---
 
 # Living Context — Self-Maintaining Project Knowledge Vault
