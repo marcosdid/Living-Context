@@ -96,7 +96,21 @@ aliases:
 Crie ou atualize o arquivo de instruções da IA (`CLAUDE.md`, `.cursorrules`, `AGENTS.md`, ou equivalente) na raiz do projeto com a seguinte seção:
 
 ```
-## Manutenção do Context Vault
+## Living Context — Vault como Segundo Cérebro
+
+O vault `context/` é o seu **segundo cérebro** neste projeto. É a fonte autoritativa de
+conhecimento sobre arquitetura, decisões, histórico e estado atual. Você — a IA — sabe menos
+sobre este projeto sem ele. Sessões futuras e próximos desenvolvedores dependem de que ele
+esteja preciso.
+
+> **REGRA 1 — Leia antes de trabalhar:** Antes de iniciar qualquer tarefa não-trivial, leia
+> `context/HOME.md`. Se for trabalhar em um domínio específico, leia também o `estrutura.md`
+> e `evolucao.md` daquele domínio. Faça isso mesmo que ache que já conhece o projeto.
+>
+> **REGRA 2 — Escreva após modificar:** Após qualquer mudança significativa de código, atualize
+> o vault. Isso não é opcional. Pular esta etapa degrada o vault para todas as sessões futuras.
+
+### Checklist de atualização (procedimento da REGRA 2)
 
 Após QUALQUER modificação significativa de código, OBRIGATORIAMENTE:
 
@@ -142,17 +156,24 @@ Preencha os arquivos com o estado ATUAL do projeto:
 Cole este lembrete no início de conversas onde você vai modificar código:
 
 ```
-IMPORTANTE: Este projeto possui um Living Context Vault na pasta `context/`.
+CONTEXTO: Este projeto possui um Living Context Vault na pasta `context/`.
 
-Antes de começar, leia `context/HOME.md` para entender o projeto.
+O vault é o seu SEGUNDO CÉREBRO para este projeto — a fonte autoritativa de conhecimento sobre
+arquitetura, decisões e histórico. Você sabe menos sobre este projeto sem ele.
 
-Após QUALQUER modificação significativa de código, você DEVE:
+**REGRA 1 — Leia antes de trabalhar:**
+Antes de iniciar qualquer tarefa não-trivial, leia `context/HOME.md`.
+Se for trabalhar em um domínio específico, leia também o `estrutura.md` e `evolucao.md` dele.
+
+**REGRA 2 — Escreva após modificar (obrigatório, não opcional):**
+Após qualquer mudança significativa de código, atualize o vault:
 1. Atualizar `context/changelog.md` (data, tipo, arquivos, o que mudou)
 2. Atualizar o `evolucao.md` do domínio afetado
 3. Adicionar ADR em `decisoes.md` se decisão arquitetural foi tomada
 4. Atualizar `modelos-dados.md` se schema mudou
 5. Atualizar `features.md` se feature foi adicionada/completada
 
+Pular a REGRA 2 degrada o vault para todas as sessões futuras.
 O vault é vivo — crie novos arquivos se necessário. Use formato Obsidian (frontmatter, wikilinks, callouts).
 ```
 
