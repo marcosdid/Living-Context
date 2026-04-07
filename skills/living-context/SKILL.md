@@ -152,11 +152,31 @@ This is the **most critical step** — without maintenance rules, the vault dies
 Add the following section to the project's CLAUDE.md (create it if it doesn't exist). Adapt the paths and domain names to match the vault structure you created:
 
 ```markdown
-## Living Context Maintenance
+## Living Context — Vault as Second Brain
 
-After ANY significant code modification, you MUST:
+The `context/` vault is your **second brain** for this project. It is the authoritative source
+of knowledge about architecture, decisions, history, and current state. You — the AI — know less
+about this project without it. Future sessions and future developers depend on it being accurate.
 
-1. Update `context/changelog.md` with:
+> [!important] Two hard rules — no exceptions
+>
+> **RULE 1 — Read before working:** Before starting any non-trivial task, read `context/HOME.md`.
+> If working in a specific domain, also read that domain's `estrutura.md` and `evolucao.md`.
+> Do this even if you think you already know the project. The vault may have changed.
+>
+> **RULE 2 — Write after changing:** After any significant code change, update the vault.
+> This is not optional. Skipping this degrades the vault for every session that comes after.
+
+### What counts as a significant change (triggers RULE 2)
+
+Update the vault after: new or deleted source files, changed function signatures or API contracts,
+schema/model changes, new dependencies, config changes that affect behavior.
+
+Skip for: formatting fixes, comment edits, test fixture changes, lockfile updates.
+
+### Update checklist (RULE 2 procedure)
+
+1. Update `context/changelog.md`:
    - Date: `[YYYY-MM-DD]`
    - Type: Feature | Bugfix | Refactor | UI/UX | Infrastructure | Documentation
    - Affected files
@@ -170,7 +190,7 @@ After ANY significant code modification, you MUST:
 
 5. If a feature was added or completed, update the features tracking file
 
-The `context/` vault is alive — create, rename, split, or remove files as needed.
+The vault is alive — create, rename, split, or remove files as needed.
 Use Obsidian format: YAML frontmatter, wikilinks `[[]]`, callouts `> [!type]`.
 ```
 
